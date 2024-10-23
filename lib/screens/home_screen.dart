@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hangman/components/action_button.dart';
 import 'package:flutter_hangman/utilities/hangman_words.dart';
@@ -27,10 +29,10 @@ class HomeScreenState extends State<HomeScreen> {
             child: Container(
               margin: const EdgeInsets.fromLTRB(8.0, 1.0, 8.0, 8.0),
               child: const Text(
-                'HANGMAN',
+                'Hangman\nWord Duel',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 58.0,
+                    fontSize: 48.0,
                     fontWeight: FontWeight.w300,
                     letterSpacing: 3.0),
               ),
@@ -51,9 +53,9 @@ class HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   SizedBox(
-                    height: 64,
+                    height: 33,
                     child: ActionButton(
-                      buttonTitle: 'Start',
+                      buttonTitle: 'START',
                       onPress: () {
                         Navigator.push(
                           context,
@@ -70,9 +72,9 @@ class HomeScreenState extends State<HomeScreen> {
                     height: 18.0,
                   ),
                   SizedBox(
-                    height: 64,
+                    height: 33,
                     child: ActionButton(
-                      buttonTitle: 'High Scores',
+                      buttonTitle: 'HIGH SCORES',
                       onPress: () {
                         Navigator.push(
                           context,
@@ -80,6 +82,18 @@ class HomeScreenState extends State<HomeScreen> {
                             builder: (context) => const LoadingScreen(),
                           ),
                         );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 18.0,
+                  ),
+                  SizedBox(
+                    height: 33,
+                    child: ActionButton(
+                      buttonTitle: 'EXIT',
+                      onPress: () {
+                        exit(0);
                       },
                     ),
                   ),

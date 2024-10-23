@@ -158,6 +158,7 @@ class ScoreScreen extends StatelessWidget {
                               color: Colors.white,
                               fontSize: 45.0,
                               fontWeight: FontWeight.w300,
+                              fontFamily: 'PatrickHand'
                             ),
                           ),
                         ),

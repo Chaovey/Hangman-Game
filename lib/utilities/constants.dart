@@ -8,8 +8,8 @@ const kActionButtonTextStyle = TextStyle(
   letterSpacing: 0.5,
 );
 
-const kActionButtonColor = Color(0xFF1089ff);
-const kActionButtonHighlightColor = Color(0xFF1089ff);
+const kActionButtonColor = Color.fromARGB(255, 65, 70, 75);
+const kActionButtonHighlightColor = Color.fromARGB(255, 66, 69, 71);
 
 const kWordButtonColor = Color(0xFF1089ff);
 const kTooltipColor = Color(0xFF1089ff);
