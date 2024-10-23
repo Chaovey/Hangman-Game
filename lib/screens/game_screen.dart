@@ -54,7 +54,7 @@ class _GameScreenState extends State<GameScreen> {
       child: Center(
         child: WordButton(
           buttonTitle: englishAlphabet.alphabet[index].toUpperCase(),
-          color: buttonColors[index], // Set the color for each button
+          color: buttonColors[index],
           onPress: buttonStatus[index] ? () => wordPress(index) : () {},
         ),
       ),
@@ -78,7 +78,7 @@ class _GameScreenState extends State<GameScreen> {
       return true;
     });
     buttonColors = List.generate(26, (index) {
-      return Colors.blue; // Default color for all buttons
+      return Colors.blue;
     });
     wordList = [];
     hintLetters = [];
@@ -235,7 +235,6 @@ class _GameScreenState extends State<GameScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        
         body: SafeArea(
           child: Column(
             children: <Widget>[
@@ -266,9 +265,10 @@ class _GameScreenState extends State<GameScreen> {
                                       ),
                                     ),
                                     Container(
-                                      padding: const EdgeInsets.only(top: 0.5,left: 50),
+                                      padding: const EdgeInsets.only(
+                                          top: 0.5, left: 50),
                                       child: IconButton(
-                                        tooltip: 'Lives',
+                                        tooltip: 'Home',
                                         highlightColor: Colors.transparent,
                                         splashColor: Colors.transparent,
                                         iconSize: 39,
@@ -314,22 +314,40 @@ class _GameScreenState extends State<GameScreen> {
                               ),
                             ),
                             SizedBox(
-                              child: IconButton(
-                                tooltip: 'Hint',
-                                iconSize: 39,
-                                icon: Icon(MdiIcons.lightbulb),
-                                highlightColor: Colors.transparent,
-                                splashColor: Colors.transparent,
-                                onPressed: hintStatus
-                                    ? () {
-                                        int rand = Random()
-                                            .nextInt(hintLetters.length);
-                                        wordPress(englishAlphabet.alphabet
-                                            .indexOf(
-                                                wordList[hintLetters[rand]]));
-                                        hintStatus = false;
-                                      }
-                                    : null,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.only(
+                                        top: 0.5, left: 50),
+                                    child: IconButton(
+                                      tooltip: 'Music',
+                                      highlightColor: Colors.transparent,
+                                      splashColor: Colors.transparent,
+                                      iconSize: 39,
+                                      icon: Icon(MdiIcons.music),
+                                      onPressed: () {
+                                        
+                                      },
+                                    ),
+                                  ),
+                                  IconButton(
+                                    tooltip: 'Hint',
+                                    iconSize: 39,
+                                    icon: Icon(MdiIcons.lightbulb),
+                                    highlightColor: Colors.transparent,
+                                    splashColor: Colors.transparent,
+                                    onPressed: hintStatus
+                                        ? () {
+                                            int rand = Random()
+                                                .nextInt(hintLetters.length);
+                                            wordPress(englishAlphabet.alphabet
+                                                .indexOf(wordList[
+                                                    hintLetters[rand]]));
+                                            hintStatus = false;
+                                          }
+                                        : null,
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -341,11 +359,15 @@ class _GameScreenState extends State<GameScreen> {
                           alignment: Alignment.bottomCenter,
                           child: FittedBox(
                             fit: BoxFit.contain,
-                            child: Image.asset(
-                              'images/$hangState.png',
-                              height: 1001,
-                              width: 991,
-                              gaplessPlayback: true,
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'images/$hangState.png',
+                                  height: 1001,
+                                  width: 991,
+                                  gaplessPlayback: true,
+                                ),
+                              ],
                             ),
                           ),
                         ),
